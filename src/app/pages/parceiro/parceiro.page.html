@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{parceiro.nome}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-slide-fotos [fotos]="parceiro.fotos"></app-slide-fotos>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-text-center">
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star-half"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-list-header>
+      Itens de Conforto
+    </ion-list-header>
+    <ion-item>
+      <ion-icon slot="start" name="water"></ion-icon>
+      Banho
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="restaurant"></ion-icon>
+      Restaurante
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" mode="ios" name="wifi"></ion-icon>
+      Wi-fi
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" mode="ios" name="bed"></ion-icon>
+      Cama
+    </ion-item>
+  </ion-list>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-text-center">
+      {{ parceiro.telefone }}
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<app-footer-button color="primary" (clicked)="0;">
+  <ion-text>RESERVAR</ion-text>
+</app-footer-button>
