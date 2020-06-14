@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { IonSlides, ToastController } from '@ionic/angular';
 import { Parceiro } from 'src/app/models/parceiro';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-parceiro',
@@ -24,10 +25,15 @@ export class CardParceiroComponent implements OnInit {
   };
 
   constructor(
-    private toastController: ToastController
+    private toastController: ToastController,
+    private router: Router
   ) { }
 
   ngOnInit() {}
+
+  verDetalhe() {
+    this.router.navigate(['parceiros', '1']);
+  }
 
   async toast(message: string) {
     this.showToast({message});

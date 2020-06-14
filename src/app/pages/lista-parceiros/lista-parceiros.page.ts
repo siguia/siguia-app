@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-parceiros',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaParceirosPage implements OnInit {
   parceiros = [];
+
   constructor() { }
 
   ngOnInit() {

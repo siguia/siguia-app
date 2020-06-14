@@ -5,6 +5,7 @@ import { SlideFotosComponent } from './components/slide-fotos/slide-fotos.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FooterButtonComponent } from './components/footer-button/footer-button.component';
+import { ModalReservarComponent } from './components/modal-reservar/modal-reservar.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,10 @@ import { FooterButtonComponent } from './components/footer-button/footer-button.
     FooterButtonComponent,
     SlideFotosComponent,
     CardParceiroComponent,
+    ModalReservarComponent,
   ],
+  entryComponents: [
+    ModalReservarComponent,
+  ]
 })
 export class SharedModule { }

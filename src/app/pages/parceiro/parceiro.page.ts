@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Parceiro } from 'src/app/models/parceiro';
+import { ModalReservarComponent } from 'src/app/components/modal-reservar/modal-reservar.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-parceiro',
@@ -8,7 +10,9 @@ import { Parceiro } from 'src/app/models/parceiro';
 })
 export class ParceiroPage implements OnInit {
   parceiro: Parceiro = {};
-  constructor() { }
+  constructor(
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
     this.parceiro = {
@@ -39,4 +43,11 @@ export class ParceiroPage implements OnInit {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuen7kBs6X8VoetSlRqZ6dtl5bBZ7yf_VsHwd346Mho2VTBw44&usqp=CAU'
   ]
 
+  async reservar() {
+    const modal = await this.modalController.create({
+      component: ModalReservarComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
 }
