@@ -22,7 +22,7 @@ export class AgendamentoPage implements OnInit {
     this.agendamento = {
       id: 3,
       uuid: 'a7dasd78as7d98asd7',
-      confirmado: true,
+      confirmado: false,
       motorista: {
         id: 3,
         uuid: 'a7dasd78as7d98asd7',
@@ -32,24 +32,9 @@ export class AgendamentoPage implements OnInit {
       },
       parceiro: fakeParceiro
     }
-    let time = 3000;
+    let time = 8000;
     setTimeout(() => {
       this.agendamento.confirmado = !this.agendamento.confirmado;
-      setTimeout(() => {
-        this.agendamento.confirmado = !this.agendamento.confirmado;
-        setTimeout(() => {
-          this.agendamento.confirmado = !this.agendamento.confirmado;
-          setTimeout(() => {
-            this.agendamento.confirmado = !this.agendamento.confirmado;
-            setTimeout(() => {
-              this.agendamento.confirmado = !this.agendamento.confirmado;
-              setTimeout(() => {
-                this.agendamento.confirmado = !this.agendamento.confirmado;
-              }, time);
-            }, time);
-          }, time);
-        }, time);
-      }, time);
     }, time);
   }
 
