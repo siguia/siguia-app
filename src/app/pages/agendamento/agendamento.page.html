@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>Agendamento</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-text class="ion-text-center">
+    <h1>
+      Quase lá!
+    </h1>
+  </ion-text>
+  <ion-item *ngIf="agendamento.confirmado && !cancelando" lines="none" color="success">
+      <ion-text>
+        O <strong>{{agendamento.parceiro.nome}}</strong> respondeu!
+      </ion-text>
+  </ion-item>
+  <ion-item *ngIf="!agendamento.confirmado" lines="none" color="warning">
+    <ion-spinner></ion-spinner>
+      &nbsp;
+      &nbsp;
+      <ion-text>
+        Aguardando confirmação do <strong>{{agendamento.parceiro.nome}}</strong>
+      </ion-text>
+  </ion-item>
+
+  <ion-card *ngIf="!agendamento.confirmado && !cancelando">
+    <ion-card-header>
+      <ion-card-subtitle color="danger">Atenção</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Estamos entrando em contato com o <strong>{{agendamento.parceiro.nome}}</strong>.
+      Avisaremos você em contato quando confirmar seu agendamento.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="agendamento.confirmado && !cancelando">
+    <ion-card-header>
+      <ion-card-subtitle color="success">CONFIRMADO!</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Conseguimos falar com <strong>{{agendamento.parceiro.nome}}</strong> e avisamos que
+      você irá parar por lá. Faça uma boa viagem!
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="cancelando">
+    <ion-card-header>
+      <ion-card-subtitle color="warning">Estamos cancelando...</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Vamos avisar o <strong>{{agendamento.parceiro.nome}}</strong>
+      que você não vai mais passar por lá.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="6" class="ion-text-center">
+      <ion-icon [style]="{color: agendamento.confirmado ? '#34b7f1' : '#25d366'}" size="large" name="checkmark-done-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<app-footer-button color="medium" (clicked)="cancelar()">
+  <ion-text>CANCELAR</ion-text>
+</app-footer-button>

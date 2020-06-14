@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-reservar',
@@ -8,7 +9,14 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalReservarComponent implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  constructor(
+    public modalController: ModalController,
+    public router: Router,
+  ) { }
 
   ngOnInit() {}
+
+  enviar() {
+    this.router.navigate(['/agendamentos', '1']);
+  }
 }
