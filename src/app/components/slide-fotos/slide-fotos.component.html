@@ -1,0 +1,7 @@
+<div class="slides">
+  <ion-slides #slider scrollbar="true" [options]="slideOpts">
+    <ion-slide *ngFor="let foto of fotos">
+      <ion-img (ionImgDidLoad)="foto.loaded = true;" [src]="foto.link" width="100" heigth="100"></ion-img>
+    </ion-slide>
+  </ion-slides>
+</div>

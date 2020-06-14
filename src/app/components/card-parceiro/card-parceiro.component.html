@@ -1,0 +1,44 @@
+<ion-card>
+  <ion-text color="primary"><strong>{{parceiro.nome}}</strong></ion-text>
+  <ion-card-header class="ion-no-padding">
+    <app-slide-fotos [fotos]="parceiro.fotos"></app-slide-fotos>
+  </ion-card-header>
+  <ion-card-content class="ion-no-padding">
+    <ion-grid>
+      <ion-row class="opcoes">
+        <ion-col>
+          <ion-icon (click)="toast('banho disponível')" name="water"></ion-icon>
+          <ion-icon (click)="toast('restaurante disponível')" name="restaurant"></ion-icon>
+          <ion-icon (click)="toast('wi-fi disponível')" mode="ios" name="wifi"></ion-icon>
+          <ion-icon (click)="toast('cama disponível')" mode="ios" name="bed"></ion-icon>
+        </ion-col>
+        <ion-col class="classificacao">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-half"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-text-center">
+          Feira de Santana - BA
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6" class="ion-text-center">
+          <a href="/parceiros/1">ver detalhes</a>
+        </ion-col>
+      </ion-row>
+      <ion-row class="opcoes">
+        <ion-col>
+          <ion-icon *ngIf="!parceiro.favorito" (click)="parceiro.favorito = !parceiro.favorito; toastSuccess('favorito salvo')" name="heart-outline"></ion-icon>
+          <ion-icon *ngIf="parceiro.favorito" (click)="parceiro.favorito = !parceiro.favorito; toastSuccess('favorito removido')" name="heart"></ion-icon>
+        </ion-col>
+        <ion-col class="ion-align-self-center ion-text-right">
+          ~ 455km
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

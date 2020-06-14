@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/buscar/buscar.module').then( m => m.BuscarPageModule)
+  },
+  {
+    path: 'parceiros',
+    loadChildren: () => import('./pages/lista-parceiros/lista-parceiros.module').then( m => m.ListaParceirosPageModule)
+  },
+  {
+    path: 'parceiros/:id',
+    loadChildren: () => import('./pages/parceiro/parceiro.module').then( m => m.ParceiroPageModule)
   }
 ];
 @NgModule({
