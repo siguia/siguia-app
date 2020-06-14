@@ -1,5 +1,7 @@
 {
   "name": "siguia",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
