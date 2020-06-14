@@ -3,7 +3,6 @@ import { Parceiro } from 'src/app/models/parceiro';
 import { ModalReservarComponent } from 'src/app/components/modal-reservar/modal-reservar.component';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Agendamento } from 'src/app/models/agendamento';
 import { fakeParceiro } from 'src/app/app.module';
 
 @Component({
@@ -29,7 +28,6 @@ export class ParceiroPage implements OnInit {
     });
     modal.onDidDismiss().then(
       (reponse: any) => {
-        console.log(reponse)
         this.router.navigate(['/agendamentos', reponse.data.uuid]);
       }
     );
