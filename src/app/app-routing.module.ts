@@ -15,11 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lista-parceiros/lista-parceiros.module').then( m => m.ListaParceirosPageModule)
   },
   {
-    path: 'parceiros/:id',
+    path: 'parceiros/:uuid',
     loadChildren: () => import('./pages/parceiro/parceiro.module').then( m => m.ParceiroPageModule)
   },
   {
-    path: 'agendamentos/:id',
+    path: 'agendamentos/:uuid',
     loadChildren: () => import('./pages/agendamento/agendamento.module').then( m => m.AgendamentoPageModule)
   }
 ];

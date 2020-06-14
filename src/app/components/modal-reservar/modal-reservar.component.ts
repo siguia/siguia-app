@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { fakeParceiro, fakeAgendamento } from 'src/app/app.module';
 
 @Component({
   selector: 'app-modal-reservar',
@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./modal-reservar.component.scss'],
 })
 export class ModalReservarComponent implements OnInit {
+  @Output() agendamento = new EventEmitter<any>();
 
   constructor(
-    public modalController: ModalController,
-    public router: Router,
+    private modalCtrl: ModalController,
   ) { }
 
   ngOnInit() {}
 
   enviar() {
-    this.router.navigate(['/agendamentos', '1']);
+    this.modalCtrl.dismiss(fakeAgendamento);
   }
 }

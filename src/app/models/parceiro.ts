@@ -1,4 +1,6 @@
 export class Parceiro {
+    id: number;
+    uuid: string;
     nome?: string;
     classificacao?: number;
     telefone?: string;

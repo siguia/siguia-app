@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Parceiro } from 'src/app/models/parceiro';
 import { ModalReservarComponent } from 'src/app/components/modal-reservar/modal-reservar.component';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { Agendamento } from 'src/app/models/agendamento';
+import { fakeParceiro } from 'src/app/app.module';
 
 @Component({
   selector: 'app-parceiro',
@@ -9,9 +12,10 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./parceiro.page.scss'],
 })
 export class ParceiroPage implements OnInit {
-  parceiro: Parceiro = {};
+  parceiro: Parceiro = fakeParceiro;
   constructor(
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -23,33 +27,13 @@ export class ParceiroPage implements OnInit {
       component: ModalReservarComponent,
       cssClass: 'my-custom-class'
     });
+    modal.onDidDismiss().then(
+      (reponse: any) => {
+        console.log(reponse)
+        this.router.navigate(['/agendamentos', reponse.data.uuid]);
+      }
+    );
     return await modal.present();
   }
 }
 
-const links = [
-  'https://i0.wp.com/trucao.com.br/wp-content/uploads/2019/05/capa_site.jpg?fit=1920%2C1080&ssl=1',
-  'https://static.ndonline.com.br/2012/11/11-11-2012-15-36-00-caminhoneiros-descanso-nova-legislacao.jpg',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuen7kBs6X8VoetSlRqZ6dtl5bBZ7yf_VsHwd346Mho2VTBw44&usqp=CAU'
-]
-
-export const fakeParceiro = {
-  nome: 'Posto Chefão',
-  classificacao: 4.5,
-  telefone: '(31) 97887-9965',
-  fotos: [
-    {
-      link: links[randomInt(0, 2)]
-    },
-    {
-      link: links[randomInt(0, 2)]
-    },
-    {
-      link: links[randomInt(0, 2)]
-    },
-  ]
-}
-
-function randomInt(min, max) {
-  return min + Math.floor((max - min) * Math.random());
-}

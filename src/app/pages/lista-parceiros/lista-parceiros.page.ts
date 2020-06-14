@@ -1,6 +1,6 @@
+import { fakeParceiro } from 'src/app/app.module';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { fakeParceiro } from '../parceiro/parceiro.page';
+
 
 @Component({
   selector: 'app-lista-parceiros',
