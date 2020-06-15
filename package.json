@@ -4,6 +4,7 @@
   "author": "SiGuia",
   "homepage": "https://jandersno.eti.br/",
   "scripts": {
+    "deploy": "ionic build && firebase deploy --only=hosting",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
