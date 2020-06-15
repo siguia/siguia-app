@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FooterButtonComponent } from './components/footer-button/footer-button.component';
 import { ModalReservarComponent } from './components/modal-reservar/modal-reservar.component';
+import { AbrirNoMapaComponent } from './components/abrir-no-mapa/abrir-no-mapa.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,8 +15,10 @@ import { ModalReservarComponent } from './components/modal-reservar/modal-reserv
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
+    HttpClientModule,
   ],
   exports: [
+    HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
@@ -22,12 +26,14 @@ import { ModalReservarComponent } from './components/modal-reservar/modal-reserv
     SlideFotosComponent,
     CardParceiroComponent,
     FooterButtonComponent,
+    AbrirNoMapaComponent,
   ],
   declarations: [
     FooterButtonComponent,
     SlideFotosComponent,
     CardParceiroComponent,
     ModalReservarComponent,
+    AbrirNoMapaComponent,
   ],
   entryComponents: [
     ModalReservarComponent,

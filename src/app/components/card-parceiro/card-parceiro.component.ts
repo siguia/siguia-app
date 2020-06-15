@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CardParceiroComponent implements OnInit {
   @ViewChild(IonSlides) slider: IonSlides;
-  @Input() parceiro: Parceiro;
+  @Input() parceiro: Parceiro = {};
 
   public slideOpts = {
     initialSlide: 0,
@@ -32,7 +32,7 @@ export class CardParceiroComponent implements OnInit {
   ngOnInit() {}
 
   verDetalhe() {
-    this.router.navigate(['parceiros', '1']);
+    this.router.navigate(['parceiros', this.parceiro.id]);
   }
 
   async toast(message: string) {

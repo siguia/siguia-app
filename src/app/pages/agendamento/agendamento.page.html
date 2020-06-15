@@ -66,6 +66,11 @@
       <ion-icon [style]="{color: agendamento.confirmado ? '#34b7f1' : '#25d366'}" size="large" name="checkmark-done-outline"></ion-icon>
     </ion-col>
   </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="6" class="ion-text-center">
+      <app-abrir-no-mapa></app-abrir-no-mapa>
+    </ion-col>
+  </ion-row>
 </ion-content>
 <app-footer-button color="medium" (clicked)="cancelar()">
   <ion-text>CANCELAR</ion-text>

@@ -1,7 +1,7 @@
 <ion-card>
   <ion-text color="primary"><strong>{{parceiro.nome}}</strong></ion-text>
   <ion-card-header class="ion-no-padding">
-    <app-slide-fotos [fotos]="parceiro.fotos"></app-slide-fotos>
+    <app-slide-fotos [fotos]="parceiro?.fotos"></app-slide-fotos>
   </ion-card-header>
   <ion-card-content class="ion-no-padding">
     <ion-grid>
@@ -22,7 +22,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col class="ion-text-center">
-          Feira de Santana - BA
+          {{parceiro.endereco?.cidade}} - {{parceiro.endereco?.estado}}
         </ion-col>
       </ion-row>
       <ion-row class="ion-justify-content-center">
